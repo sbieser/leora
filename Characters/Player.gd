@@ -1,5 +1,10 @@
 extends KinematicBody2D
 
+signal select
+signal action
+signal collected_item(item)
+
+
 #TODO: We need to have states to show which direction the player is facing, left or right
 enum STATE{
 	IDLE, 
@@ -10,9 +15,10 @@ enum STATE{
 #How many directions do we need?
 enum DIRECTION{
 	RIGHT, 
-	LEFT
+	LEFT,
+	UP,
+	DOWN
 }
-
 
 export (int) var walk_speed = 85	# Allow editor to change the walking speed
 export (int) var facing = 0			# Allow editor to change the starting facing direction
@@ -68,42 +74,40 @@ func print_state():
 		WALK:
 			print("WALK")
 			
-func handle_input():
-	print_state()
-	#print(str(velocity.x) + ":" + str(velocity.y))
-	#Left/Right - Movement
+func handle_movement():
+	velocity = Vector2()
+	
 	var right = Input.is_action_pressed("ui_right") 	# movement right
 	var left = Input.is_action_pressed("ui_left") 		# movement left
 	var down = Input.is_action_pressed("ui_down") 		# movement down
 	var up = Input.is_action_pressed("ui_up")			# movement up
+	
+	if right:
+		velocity.x += 1
+	if left: 
+		velocity.x -= 1
+	if up:
+		velocity.y -= 1
+	if down:
+		velocity.y += 1
+		
+	return velocity.normalized() * walk_speed
+	
+func handle_input():
+	#print_state()
+	
+	var select = Input.is_action_pressed("ui_select")	# action / select
 	#set velocity to 0 initially
-	velocity = Vector2()
+	velocity = handle_movement()#Vector2()
 	
 	match state:
 		IDLE:
-			if right:
-				velocity.x += 1
-			if left: 
-				velocity.x -= 1
-			if up:
-				velocity.y -= 1
-			if down:
-				velocity.y += 1
-				
-			velocity = velocity.normalized() * walk_speed
 			if velocity.x != 0 || velocity.y != 0:
 				change_state(WALK)
-		WALK:
-			if right:
-				velocity.x += 1
-			if left: 
-				velocity.x -= 1
-			if up:
-				velocity.y -= 1
-			if down:
-				velocity.y += 1
+			elif select:
+				emit_signal("select")	
 			
-			velocity = velocity.normalized() * walk_speed
+		WALK:
 			if velocity.x == 0 and velocity.y == 0:
 				change_state(IDLE)
 
@@ -114,3 +118,8 @@ func _process(delta):
 	
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
+	
+	var areas = $CollectingArea.get_overlapping_areas()
+	for area in areas:
+		if area.is_in_group("item"):
+			emit_signal("collected_item", area)
