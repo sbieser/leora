@@ -3,6 +3,7 @@ extends Node
 onready var pinecone_scene = preload("res://Environment/PineCone.tscn")
 onready var tree_scene = preload("res://Environment/Tree.tscn")
 
+
 #this will be a container for all the pinecones
 onready var pinecone_container = get_node("pinecone_container")
 
@@ -18,6 +19,7 @@ func _ready():
 	randomize()
 	screensize = get_viewport().size
 	spawn_pinecones(10)
+	_change_screen("test_level")
 	
 func spawn_pinecones(num):
 	for i in range(num):
@@ -46,3 +48,27 @@ func _on_Player_collected_item(item):
 		pinecone_inventory = pinecone_inventory + 1
 		$HUD.update_pinecone_amount(pinecone_inventory)
 		item.queue_free()
+
+func _Main_trigger_scene_transition(playerPosition, transitionTo):
+	#print("trigger_scene_transition")
+	#print(playerPosition)
+	#print(transitionTo)
+	$Player.position.x = 0
+	_change_screen(transitionTo)
+		
+func _change_screen(toScreen):
+	print("from:" + get_node(".").get_children()[0].get_name() + " to: " + toScreen)
+	var old_nodes = $LevelPlaceholder.get_children()
+	for node in old_nodes:
+		node.queue_free()
+	$LevelPlaceholder.add_child(load("res://levels/" + toScreen + ".tscn").instance())
+	
+	var currentScreen = $LevelPlaceholder.get_node(toScreen)
+	
+	print("current screen: " + currentScreen.get_name())
+	currentScreen.connect("trigger_scene_transition", self, "_Main_trigger_scene_transition")
+	
+	#var nodes = $LevelPlaceholder.get_children()
+	#for node in nodes:
+	#	print(node.get_name())
+	

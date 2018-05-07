@@ -4,7 +4,6 @@ signal select
 signal action
 signal collected_item(item)
 
-
 #TODO: We need to have states to show which direction the player is facing, left or right
 enum STATE{
 	IDLE, 
