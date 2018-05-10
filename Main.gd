@@ -19,7 +19,6 @@ func _ready():
 	randomize()
 	screensize = get_viewport().size
 	spawn_pinecones(10)
-	_change_screen("test_level")
 	
 func spawn_pinecones(num):
 	for i in range(num):
@@ -49,26 +48,28 @@ func _on_Player_collected_item(item):
 		$HUD.update_pinecone_amount(pinecone_inventory)
 		item.queue_free()
 
-func _Main_trigger_scene_transition(playerPosition, transitionTo):
-	#print("trigger_scene_transition")
-	#print(playerPosition)
-	#print(transitionTo)
-	$Player.position.x = 0
-	_change_screen(transitionTo)
-		
-func _change_screen(toScreen):
-	print("from:" + get_node(".").get_children()[0].get_name() + " to: " + toScreen)
-	var old_nodes = $LevelPlaceholder.get_children()
-	for node in old_nodes:
-		node.queue_free()
-	$LevelPlaceholder.add_child(load("res://levels/" + toScreen + ".tscn").instance())
+
+#This stuff worked, but not sure if it is necessary
+#func _Main_trigger_scene_transition(playerPosition, transitionTo):
+#	$Player.position.x = 0
+#	_change_screen(transitionTo)
+#
+#func _change_screen(toScreen):
+#	print("from:" + get_node(".").get_children()[0].get_name() + " to: " + toScreen)
+#	var old_nodes = $LevelPlaceholder.get_children()
+#	for node in old_nodes:
+#		node.queue_free()
+#	$LevelPlaceholder.add_child(load("res://levels/" + toScreen + ".tscn").instance())
+#
+#	var currentScreen = $LevelPlaceholder.get_node(toScreen)
+#
+#	print("current screen: " + currentScreen.get_name())
+#	currentScreen.connect("trigger_scene_transition", self, "_Main_trigger_scene_transition")
 	
-	var currentScreen = $LevelPlaceholder.get_node(toScreen)
-	
-	print("current screen: " + currentScreen.get_name())
-	currentScreen.connect("trigger_scene_transition", self, "_Main_trigger_scene_transition")
-	
-	#var nodes = $LevelPlaceholder.get_children()
-	#for node in nodes:
-	#	print(node.get_name())
-	
+
+func _on_test_level_change_scene():
+	print("_on_test_level_change_scene")
+	#ok, how do we go about changing the scene now?
+	#get_tree().change_scene("res://AnotherMain.tscn")
+	get_tree().change_scene("res://Platformer/PlatformerMain.tscn")
+	#pass # replace with function body

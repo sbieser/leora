@@ -1,9 +1,7 @@
 extends Node2D
 
-signal trigger_scene_transition(playerPosition, transitionTo)
+signal change_scene
 
-func _on_scene_transition_body_entered(body):
+func _on_Area2D_body_entered(body):
 	if body.get_name() == "Player":
-		print("_on_scene_transition_body_entered::test_level")
-		emit_signal("trigger_scene_transition", body.position, "test_level_rs")
-
+		emit_signal("change_scene")
