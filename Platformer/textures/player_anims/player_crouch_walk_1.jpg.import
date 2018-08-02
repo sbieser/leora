@@ -7,10 +7,7 @@ path="res://.import/player_crouch_walk_1.jpg-080d08064f821f65c23910d0a3be45fe.st
 [deps]
 
 source_file="res://Platformer/textures/player_anims/player_crouch_walk_1.jpg"
-source_md5="9177b26333eeec0439a71216784338a8"
-
 dest_files=[ "res://.import/player_crouch_walk_1.jpg-080d08064f821f65c23910d0a3be45fe.stex" ]
-dest_md5="6bdaf037a2eff949926275365a3d8ef4"
 
 [params]
 

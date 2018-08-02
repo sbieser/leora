@@ -7,10 +7,7 @@ path="res://.import/tree_1.png-da4a4a24971e946847ecdc94cbe4f68b.stex"
 [deps]
 
 source_file="res://Platformer/textures/environment/tree_1.png"
-source_md5="d7d48994b314b5ca4634071332cb6150"
-
 dest_files=[ "res://.import/tree_1.png-da4a4a24971e946847ecdc94cbe4f68b.stex" ]
-dest_md5="d4352023018b20029d46c31dea2a46f6"
 
 [params]
 

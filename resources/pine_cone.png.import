@@ -7,10 +7,7 @@ path="res://.import/pine_cone.png-2c79d63412ca93a19852d126303232ce.stex"
 [deps]
 
 source_file="res://resources/pine_cone.png"
-source_md5="9ae4fbdc91fcd6261a6392aa58d4bff2"
-
 dest_files=[ "res://.import/pine_cone.png-2c79d63412ca93a19852d126303232ce.stex" ]
-dest_md5="ffdd261436fbb223b2c190123ef9c2b9"
 
 [params]
 

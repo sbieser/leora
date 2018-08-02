@@ -7,10 +7,7 @@ path="res://.import/Sprite-0001.jpg-ba605505f7a95c86f8465271fb7b8336.stex"
 [deps]
 
 source_file="res://Platformer/textures/Sprite-0001.jpg"
-source_md5="8af2de31428f6c6e79a604a160128d77"
-
 dest_files=[ "res://.import/Sprite-0001.jpg-ba605505f7a95c86f8465271fb7b8336.stex" ]
-dest_md5="2d699c8d299d72dae825e862c58102b0"
 
 [params]
 

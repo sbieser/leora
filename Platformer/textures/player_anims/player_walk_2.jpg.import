@@ -7,10 +7,7 @@ path="res://.import/player_walk_2.jpg-d996b0a623ef1d51bfeb47e569a06778.stex"
 [deps]
 
 source_file="res://Platformer/textures/player_anims/player_walk_2.jpg"
-source_md5="db0a5a5980b727cf6861f64d9dbeef30"
-
 dest_files=[ "res://.import/player_walk_2.jpg-d996b0a623ef1d51bfeb47e569a06778.stex" ]
-dest_md5="acf3aa848b02048cb527f5197f5623e0"
 
 [params]
 

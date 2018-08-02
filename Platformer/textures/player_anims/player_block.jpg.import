@@ -7,10 +7,7 @@ path="res://.import/player_block.jpg-ab349d4781242c48c33cfa7240df653c.stex"
 [deps]
 
 source_file="res://Platformer/textures/player_anims/player_block.jpg"
-source_md5="ea57db4fec80c2a4ae3d7716da06705d"
-
 dest_files=[ "res://.import/player_block.jpg-ab349d4781242c48c33cfa7240df653c.stex" ]
-dest_md5="e29f54c861c7ab506133d4dded61c92f"
 
 [params]
 

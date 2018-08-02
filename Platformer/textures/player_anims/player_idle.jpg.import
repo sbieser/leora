@@ -7,10 +7,7 @@ path="res://.import/player_idle.jpg-de4f8844bb4ca0bc7d8f77f6baf51219.stex"
 [deps]
 
 source_file="res://Platformer/textures/player_anims/player_idle.jpg"
-source_md5="e5d3e02e69a3743d9ca41273bb98d6ca"
-
 dest_files=[ "res://.import/player_idle.jpg-de4f8844bb4ca0bc7d8f77f6baf51219.stex" ]
-dest_md5="52b7efb9b3654d91f53ce52daf763bda"
 
 [params]
 

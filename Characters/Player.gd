@@ -95,7 +95,8 @@ func handle_movement():
 func handle_input():
 	#print_state()
 	
-	var select = Input.is_action_pressed("ui_select")	# action / select
+	var select = Input.is_action_pressed("ui_select")	# spacebar
+	var action = Input.is_action_pressed("ui_accept")	# enter
 	#set velocity to 0 initially
 	velocity = handle_movement()#Vector2()
 	
@@ -105,10 +106,14 @@ func handle_input():
 				change_state(WALK)
 			elif select:
 				emit_signal("select")	
+			elif action:
+				emit_signal("action")
 			
 		WALK:
 			if velocity.x == 0 and velocity.y == 0:
 				change_state(IDLE)
+			elif action:
+				emit_signal("action")
 
 func _process(delta):
 #	# Called every frame. Delta is time since last frame.

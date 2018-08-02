@@ -7,10 +7,7 @@ path="res://.import/enemy_2.jpg-386beb95a72aa44e4de41927c4239f99.stex"
 [deps]
 
 source_file="res://Platformer/textures/enemies/enemy_2.jpg"
-source_md5="a2a29d96c022b8e64a0046b33cf3fa8a"
-
 dest_files=[ "res://.import/enemy_2.jpg-386beb95a72aa44e4de41927c4239f99.stex" ]
-dest_md5="4b0a1848f65bc445fc3d4f79923efe99"
 
 [params]
 

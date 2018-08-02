@@ -7,10 +7,7 @@ path="res://.import/collidable_test.png-f562ecd5302986631ca88ad1a703541b.stex"
 [deps]
 
 source_file="res://resources/tileset/collidable_test.png"
-source_md5="8a1000f8d4b72b5d2cee6ea4d3a08d39"
-
 dest_files=[ "res://.import/collidable_test.png-f562ecd5302986631ca88ad1a703541b.stex" ]
-dest_md5="df7fc062c68a992ffb456e4f5b84416f"
 
 [params]
 

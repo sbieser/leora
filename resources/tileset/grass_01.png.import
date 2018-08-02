@@ -7,10 +7,7 @@ path="res://.import/grass_01.png-8a89d27201f1e1e326376aabce6f34b1.stex"
 [deps]
 
 source_file="res://resources/tileset/grass_01.png"
-source_md5="3f7c0fd43e65e28402520da3bb8adc54"
-
 dest_files=[ "res://.import/grass_01.png-8a89d27201f1e1e326376aabce6f34b1.stex" ]
-dest_md5="7ad8bea0e70db791058c8b8b7706ab05"
 
 [params]
 

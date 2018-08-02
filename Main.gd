@@ -2,23 +2,24 @@ extends Node
 
 onready var pinecone_scene = preload("res://Environment/PineCone.tscn")
 onready var tree_scene = preload("res://Environment/Tree.tscn")
-
+onready var interactions_manager_scene = preload("res://InteractionsManager.tscn")
 
 #this will be a container for all the pinecones
 onready var pinecone_container = get_node("pinecone_container")
 
 var pinecone_inventory = 0
-
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 var screensize
+var interactionsManager
 
 func _ready():
 	randomize()
 	screensize = get_viewport().size
 	spawn_pinecones(10)
+	self.interactionsManager = interactions_manager_scene.instance()
+	self.interactionsManager.setPlayer($Player)
+	#this does not exist anymore, ha 
+	self.interactionsManager.addInteractiveObject($Grandma)
+	self.add_child(self.interactionsManager)
 	
 func spawn_pinecones(num):
 	for i in range(num):
@@ -33,7 +34,10 @@ func _process(delta):
 	pass
 
 func _on_Player_select():
-	print("_on_Player_select")
+	#print("_on_Player_select")
+	#$DialogueBox.position = $Player.position
+	#$DialogueBox.display_text("just testing this, will it work??")
+	
 	if pinecone_inventory > 0:
 		pinecone_inventory = pinecone_inventory - 1
 		$HUD.update_pinecone_amount(pinecone_inventory)

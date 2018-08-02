@@ -7,10 +7,7 @@ path="res://.import/player_attack.jpg-a50ae6e0f2872892d51c639e0f7a9c01.stex"
 [deps]
 
 source_file="res://Platformer/textures/player_anims/player_attack.jpg"
-source_md5="10678c635eaa447c1118100ab3a0ecfc"
-
 dest_files=[ "res://.import/player_attack.jpg-a50ae6e0f2872892d51c639e0f7a9c01.stex" ]
-dest_md5="e4be6a2ca852baa6848736faab08ca91"
 
 [params]
 

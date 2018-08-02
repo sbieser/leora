@@ -7,10 +7,7 @@ path="res://.import/player_jump.jpg-fe5b66120fc9e51d76040e2b0ff11249.stex"
 [deps]
 
 source_file="res://Platformer/textures/player_anims/player_jump.jpg"
-source_md5="400eb700d6fb99ae37eb17caab2567f7"
-
 dest_files=[ "res://.import/player_jump.jpg-fe5b66120fc9e51d76040e2b0ff11249.stex" ]
-dest_md5="3742ad2dbbf0efea02a87ef193e7ddf6"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/coin.jpg-e644a1206afca72750bad49d86052abb.stex"
 [deps]
 
 source_file="res://Platformer/textures/coin.jpg"
-source_md5="1067e7b071428c03606dd8c10ea3542d"
-
 dest_files=[ "res://.import/coin.jpg-e644a1206afca72750bad49d86052abb.stex" ]
-dest_md5="ec9574e4cf4d0bf24f983e68c0ee2525"
 
 [params]
 

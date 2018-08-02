@@ -7,10 +7,7 @@ path="res://.import/portal_test.png-a94a8eeab553f0c8b11674497f984e6b.stex"
 [deps]
 
 source_file="res://resources/portal_test.png"
-source_md5="c3d6019e50263f2a70870c8aa61e72a5"
-
 dest_files=[ "res://.import/portal_test.png-a94a8eeab553f0c8b11674497f984e6b.stex" ]
-dest_md5="61f308098f9325dbc0223fcc1253a24f"
 
 [params]
 
