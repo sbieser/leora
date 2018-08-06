@@ -8,10 +8,15 @@ var unhighlightedTexture = preload("res://resources/grandma_sprite.png")
 # var a = 2
 # var b = "textvar"
 
+var descriptionText = "I am Grandma, who are you?";
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
+
+func getDialogue():
+	return self.descriptionText
 
 func setHighlighted(var highlighted):
 	if highlighted == true:

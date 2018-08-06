@@ -1,12 +1,11 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+signal startDialogue(dialogue)
 
 #needs reference to the player node
 var player = null
 var interactive_objects = []
+var min_distance = 55
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -17,21 +16,19 @@ func _ready():
 #	self.player = player
 
 func setPlayer(var player):
-	#print("InteractionManager::setPlayer")
-	
 	self.player = player
-	self.player.connect("select", self, "_on_Player_select")
 	self.player.connect("action", self, "_on_Player_action")
 	
 func addInteractiveObject(var interactiveObject):
 	self.interactive_objects.append(interactiveObject)
 
-func _on_Player_select():
-	print("InteractionsManager._on_Player_select")
-	pass
-
 func _on_Player_action():
-	print("InteractionsManager._on_Player_action")
+	var object = self.findInteractiveObjectNow()
+	if object != null && object.has_method("getDialogue"):
+		var dialogueText = object.getDialogue()
+		emit_signal("startDialogue", dialogueText)
+		pass
+		
 	pass
 
 func _process(delta):
@@ -39,9 +36,16 @@ func _process(delta):
 	for object in self.interactive_objects:
 		var distance = player.position.distance_to(object.position)
 		
-		if object.name == "Grandma":
-			if distance <= 60:
+		if object.has_method("setHighlighted"):
+			if distance <= self.min_distance:
 				object.setHighlighted(true)
 			else:
 				object.setHighlighted(false)
 	pass
+
+func findInteractiveObjectNow():
+	for object in self.interactive_objects:
+		var distance = player.position.distance_to(object.position)
+		if distance <= 55:
+			return object
+	return null

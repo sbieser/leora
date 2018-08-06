@@ -96,7 +96,7 @@ func handle_input():
 	#print_state()
 	
 	var select = Input.is_action_pressed("ui_select")	# spacebar
-	var action = Input.is_action_pressed("ui_accept")	# enter
+	var action = Input.is_action_just_released("ui_accept")	# enter
 	#set velocity to 0 initially
 	velocity = handle_movement()#Vector2()
 	

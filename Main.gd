@@ -17,9 +17,12 @@ func _ready():
 	spawn_pinecones(10)
 	self.interactionsManager = interactions_manager_scene.instance()
 	self.interactionsManager.setPlayer($Player)
-	#this does not exist anymore, ha 
 	self.interactionsManager.addInteractiveObject($Grandma)
+	self.interactionsManager.connect("startDialogue", self, "showDialogue")
 	self.add_child(self.interactionsManager)
+	
+func showDialogue(var dialogue):
+	$DescriptionHUD.setText(dialogue)
 	
 func spawn_pinecones(num):
 	for i in range(num):
@@ -77,3 +80,12 @@ func _on_test_level_change_scene():
 	#get_tree().change_scene("res://AnotherMain.tscn")
 	get_tree().change_scene("res://Platformer/PlatformerMain.tscn")
 	#pass # replace with function body
+
+func _on_DescriptionHUD_descriptionEntered():
+	print("_on_DescriptionHUD_descriptionEntered")
+	get_tree().paused = true
+
+
+func _on_DescriptionHUD_descriptionExited():
+	print("_on_DescriptionHUD_descriptionExited")
+	get_tree().paused = false
