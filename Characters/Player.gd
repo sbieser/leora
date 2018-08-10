@@ -24,10 +24,28 @@ export (int) var facing = 0			# Allow editor to change the starting facing direc
 var state
 var velocity = Vector2()
 
+#important game state information on the character
+var game_state = {
+	"collected_pinecone": false,
+	"pinecones_stored": 0,
+	"pinecones_planted": 0
+}
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	change_state(IDLE)
+
+func setGameStateValue(key, value):
+	self.game_state[key] = value
+
+func getGameStateValue(key):
+	return self.game_state[key]
+
+#interactions manager might be interested in the entire character game state,
+#it can ask if a key exists or someting
+func getGameState():
+	return self.game_state
 
 func change_state(new_state):
 	if new_state != state:

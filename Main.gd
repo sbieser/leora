@@ -37,12 +37,13 @@ func _process(delta):
 	pass
 
 func _on_Player_select():
-	#print("_on_Player_select")
-	#$DialogueBox.position = $Player.position
-	#$DialogueBox.display_text("just testing this, will it work??")
 	
 	if pinecone_inventory > 0:
+		$DescriptionHUD.setText("You have planted a tree, you are amazing!")
+		
 		pinecone_inventory = pinecone_inventory - 1
+		$Player.setGameStateValue("pinecones_stored", pinecone_inventory)
+		$Player.setGameStateValue("pinecones_planted", $Player.getGameStateValue("pinecones_planted") + 1)
 		$HUD.update_pinecone_amount(pinecone_inventory)
 		var tree = tree_scene.instance()
 		$tree_container.add_child(tree)
@@ -54,7 +55,8 @@ func _on_Player_collected_item(item):
 		pinecone_inventory = pinecone_inventory + 1
 		$HUD.update_pinecone_amount(pinecone_inventory)
 		item.queue_free()
-
+		$Player.setGameStateValue("collected_pinecone", true)
+		$Player.setGameStateValue("pinecones_stored", pinecone_inventory)
 
 #This stuff worked, but not sure if it is necessary
 #func _Main_trigger_scene_transition(playerPosition, transitionTo):

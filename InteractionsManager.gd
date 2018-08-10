@@ -25,7 +25,7 @@ func addInteractiveObject(var interactiveObject):
 func _on_Player_action():
 	var object = self.findInteractiveObjectNow()
 	if object != null && object.has_method("getDialogue"):
-		var dialogueText = object.getDialogue()
+		var dialogueText = object.getDialogue(self.player)
 		emit_signal("startDialogue", dialogueText)
 		pass
 		
